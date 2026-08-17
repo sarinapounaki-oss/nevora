@@ -1,0 +1,869 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Nevora | فروشگاه آنلاین لوازم آرایشی">
+  <title>Nevora | فروشگاه لوازم آرایشی</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Tahoma, Arial, sans-serif;
+      background: #fff8fb;
+      color: #241d22;
+      line-height: 1.7;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    button {
+      font-family: inherit;
+      cursor: pointer;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(255,255,255,0.94);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid #f0e2e8;
+    }
+
+    .nav {
+      max-width: 1150px;
+      margin: auto;
+      padding: 14px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .logo {
+      font-family: Georgia, serif;
+      font-size: 30px;
+      font-weight: bold;
+      letter-spacing: 2px;
+      color: #bd6e91;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 25px;
+      font-size: 14px;
+    }
+
+    .nav-links a:hover {
+      color: #bd6e91;
+    }
+
+    .cart-btn {
+      border: none;
+      background: #241d22;
+      color: white;
+      padding: 10px 17px;
+      border-radius: 30px;
+    }
+
+    .hero {
+      max-width: 1150px;
+      margin: 30px auto;
+      padding: 0 20px;
+    }
+
+    .hero-box {
+      min-height: 480px;
+      border-radius: 32px;
+      padding: 55px;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+      position: relative;
+      background:
+        radial-gradient(circle at 80% 20%, rgba(255,255,255,.8), transparent 25%),
+        linear-gradient(120deg, #f3d4e0, #fff, #ead0db);
+    }
+
+    .hero-box::after {
+      content: "";
+      position: absolute;
+      width: 330px;
+      height: 330px;
+      border-radius: 50%;
+      background: rgba(255,255,255,.45);
+      left: 7%;
+      top: 20%;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 580px;
+    }
+
+    .small-title {
+      color: #a85f7d;
+      font-size: 14px;
+      margin-bottom: 12px;
+      letter-spacing: 1px;
+    }
+
+    h1 {
+      font-family: Georgia, serif;
+      font-size: 62px;
+      line-height: 1.05;
+      margin-bottom: 20px;
+    }
+
+    .hero-content p {
+      color: #62555b;
+      max-width: 480px;
+      margin-bottom: 28px;
+    }
+
+    .main-btn {
+      display: inline-block;
+      border: none;
+      background: #241d22;
+      color: white;
+      padding: 13px 25px;
+      border-radius: 30px;
+    }
+
+    .section {
+      max-width: 1150px;
+      margin: 70px auto;
+      padding: 0 20px;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .section-title h2 {
+      font-family: Georgia, serif;
+      font-size: 34px;
+      margin-bottom: 5px;
+    }
+
+    .section-title p {
+      color: #7c7076;
+      font-size: 14px;
+    }
+
+    .categories {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+    }
+
+    .category {
+      background: white;
+      border: 1px solid #f0e1e8;
+      border-radius: 20px;
+      padding: 25px 15px;
+      text-align: center;
+      transition: .2s;
+    }
+
+    .category:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 25px rgba(80,40,60,.08);
+    }
+
+    .category-icon {
+      font-size: 35px;
+      margin-bottom: 8px;
+    }
+
+    .products {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+    }
+
+    .product {
+      background: white;
+      border: 1px solid #f0e1e8;
+      border-radius: 20px;
+      overflow: hidden;
+      transition: .2s;
+    }
+
+    .product:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 28px rgba(80,40,60,.1);
+    }
+
+    .product-image {
+      height: 220px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 70px;
+      background: linear-gradient(145deg,#f8e3ea,#ead0db);
+    }
+
+    .product-info {
+      padding: 16px;
+    }
+
+    .product-category {
+      color: #a85f7d;
+      font-size: 11px;
+    }
+
+    .product-name {
+      font-size: 16px;
+      margin: 5px 0;
+    }
+
+    .price {
+      font-weight: bold;
+      margin: 8px 0 12px;
+    }
+
+    .add-cart {
+      width: 100%;
+      background: white;
+      border: 1px solid #241d22;
+      border-radius: 25px;
+      padding: 9px;
+    }
+
+    .add-cart:hover {
+      background: #241d22;
+      color: white;
+    }
+
+    .about {
+      background: #241d22;
+      color: white;
+      border-radius: 30px;
+      padding: 45px;
+      text-align: center;
+    }
+
+    .about p {
+      color: #ddd;
+      max-width: 700px;
+      margin: 10px auto 0;
+    }
+
+    footer {
+      margin-top: 70px;
+      padding: 40px 20px;
+      background: #191519;
+      color: #ddd;
+      text-align: center;
+    }
+
+    footer .logo {
+      margin-bottom: 10px;
+    }
+
+    .modal {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,.45);
+      z-index: 500;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .modal.active {
+      display: flex;
+    }
+
+    .modal-box {
+      width: min(500px,100%);
+      max-height: 90vh;
+      overflow: auto;
+      background: white;
+      border-radius: 25px;
+      padding: 25px;
+    }
+
+    .modal-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 20px;
+    }
+
+    .close {
+      width: 35px;
+      height: 35px;
+      border: none;
+      border-radius: 50%;
+      background: #f3e7ec;
+      font-size: 20px;
+    }
+
+    .cart-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+      border-bottom: 1px solid #eee;
+      padding: 12px 0;
+    }
+
+    .remove {
+      border: none;
+      background: transparent;
+      font-size: 16px;
+    }
+
+    .total {
+      display: flex;
+      justify-content: space-between;
+      font-weight: bold;
+      margin: 20px 0;
+    }
+
+    .empty {
+      text-align: center;
+      color: #777;
+      padding: 30px;
+    }
+
+    @media (max-width: 800px) {
+      .nav-links {
+        display: none;
+      }
+
+      .hero-box {
+        min-height: 520px;
+        padding: 35px;
+      }
+
+      h1 {
+        font-size: 46px;
+      }
+
+      .categories,
+      .products {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero {
+        margin-top: 15px;
+      }
+
+      .hero-box {
+        border-radius: 24px;
+        padding: 28px 22px;
+      }
+
+      h1 {
+        font-size: 39px;
+      }
+
+      .section {
+        margin: 50px auto;
+      }
+
+      .categories,
+      .products {
+        gap: 10px;
+      }
+
+      .product-image {
+        height: 170px;
+      }
+
+      .about {
+        padding: 30px 20px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <nav class="nav">
+
+    <a href="#" class="logo">NEVORA</a>
+
+    <div class="nav-links">
+      <a href="#home">خانه</a>
+      <a href="#products">محصولات</a>
+      <a href="#about">درباره ما</a>
+      <a href="#contact">تماس با ما</a>
+    </div>
+
+    <button class="cart-btn" onclick="openCart()">
+      🛍️ سبد خرید
+      (<span id="cartCount">0</span>)
+    </button>
+
+  </nav>
+</header>
+
+
+<main id="home">
+
+  <section class="hero">
+
+    <div class="hero-box">
+
+      <div class="hero-content">
+
+        <div class="small-title">
+          BEAUTY • CARE • STYLE
+        </div>
+
+        <h1>
+          زیبایی،
+          <br>
+          به سبک Nevora
+        </h1>
+
+        <p>
+          دنیای کوچیک و جذاب لوازم آرایشی؛
+          برای دخترایی که عاشق زیبایی و استایل خودشونن. ✨
+        </p>
+
+        <a href="#products" class="main-btn">
+          مشاهده محصولات
+        </a>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <section class="section">
+
+    <div class="section-title">
+      <h2>دسته‌بندی‌ها</h2>
+      <p>محصول مورد علاقه‌ات رو پیدا کن 💗</p>
+    </div>
+
+    <div class="categories">
+
+      <div class="category">
+        <div class="category-icon">💄</div>
+        <strong>آرایش صورت</strong>
+      </div>
+
+      <div class="category">
+        <div class="category-icon">💋</div>
+        <strong>محصولات لب</strong>
+      </div>
+
+      <div class="category">
+        <div class="category-icon">👁️</div>
+        <strong>محصولات چشم</strong>
+      </div>
+
+      <div class="category">
+        <div class="category-icon">✨</div>
+        <strong>مراقبت پوست</strong>
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <section class="section" id="products">
+
+    <div class="section-title">
+      <h2>محصولات منتخب</h2>
+      <p>انتخاب‌های جذاب Nevora برای تو ✨</p>
+    </div>
+
+    <div class="products" id="productList"></div>
+
+  </section>
+
+
+  <section class="section" id="about">
+
+    <div class="about">
+
+      <h2>درباره Nevora</h2>
+
+      <p>
+        Nevora یک فروشگاه آنلاین لوازم آرایشی با تمرکز روی
+        محصولات ترند، جذاب و دوست‌داشتنیه.
+        اینجا قراره آیتم‌های مورد علاقه‌ات رو راحت پیدا کنی. 💗
+      </p>
+
+    </div>
+
+  </section>
+
+</main>
+
+
+<footer id="contact">
+
+  <div class="logo">
+    NEVORA
+  </div>
+
+  <p>
+    برای سفارش و پشتیبانی از طریق شبکه‌های اجتماعی با ما در ارتباط باش.
+  </p>
+
+  <p style="margin-top:15px;font-size:12px">
+    © 2026 Nevora — All rights reserved.
+  </p>
+
+</footer>
+
+
+<div class="modal" id="cartModal">
+
+  <div class="modal-box">
+
+    <div class="modal-header">
+
+      <h2>🛍️ سبد خرید</h2>
+
+      <button class="close" onclick="closeCart()">
+        ×
+      </button>
+
+    </div>
+
+    <div id="cartItems"></div>
+
+    <div class="total">
+
+      <span>مجموع:</span>
+
+      <span id="totalPrice">
+        ۰ تومان
+      </span>
+
+    </div>
+
+    <button
+      class="main-btn"
+      style="width:100%"
+      onclick="checkout()">
+
+      ثبت سفارش
+
+    </button>
+
+  </div>
+
+</div>
+
+
+<script>
+
+const products = [
+
+  {
+    id: 1,
+    name: "لیپگلاس شاین",
+    category: "محصولات لب",
+    price: 295000,
+    emoji: "💋"
+  },
+
+  {
+    id: 2,
+    name: "رژگونه مایع",
+    category: "آرایش صورت",
+    price: 385000,
+    emoji: "🌸"
+  },
+
+  {
+    id: 3,
+    name: "پالت سایه مینی",
+    category: "محصولات چشم",
+    price: 495000,
+    emoji: "🎨"
+  },
+
+  {
+    id: 4,
+    name: "هایلایتر براق",
+    category: "آرایش صورت",
+    price: 420000,
+    emoji: "✨"
+  },
+
+  {
+    id: 5,
+    name: "رژ لب مات",
+    category: "محصولات لب",
+    price: 340000,
+    emoji: "💄"
+  },
+
+  {
+    id: 6,
+    name: "ریمل حجم‌دهنده",
+    category: "محصولات چشم",
+    price: 390000,
+    emoji: "👁️"
+  },
+
+  {
+    id: 7,
+    name: "پرایمر شاین",
+    category: "مراقبت پوست",
+    price: 450000,
+    emoji: "🪞"
+  },
+
+  {
+    id: 8,
+    name: "تینت لب",
+    category: "محصولات لب",
+    price: 310000,
+    emoji: "🍓"
+  }
+
+];
+
+
+let cart =
+JSON.parse(
+localStorage.getItem("nevoraCart") || "[]"
+);
+
+
+function formatPrice(price) {
+
+  return price.toLocaleString("fa-IR")
+  + " تومان";
+
+}
+
+
+function showProducts() {
+
+  const list =
+  document.getElementById("productList");
+
+  list.innerHTML =
+  products.map(product => `
+
+    <article class="product">
+
+      <div class="product-image">
+        ${product.emoji}
+      </div>
+
+      <div class="product-info">
+
+        <span class="product-category">
+          ${product.category}
+        </span>
+
+        <h3 class="product-name">
+          ${product.name}
+        </h3>
+
+        <div class="price">
+          ${formatPrice(product.price)}
+        </div>
+
+        <button
+          class="add-cart"
+          onclick="addToCart(${product.id})">
+
+          افزودن به سبد خرید
+
+        </button>
+
+      </div>
+
+    </article>
+
+  `).join("");
+
+}
+
+
+function addToCart(id) {
+
+  const product =
+  products.find(item => item.id === id);
+
+  cart.push(product);
+
+  saveCart();
+
+  alert(
+    "محصول با موفقیت به سبد خرید اضافه شد 💗"
+  );
+
+}
+
+
+function saveCart() {
+
+  localStorage.setItem(
+    "nevoraCart",
+    JSON.stringify(cart)
+  );
+
+  document.getElementById("cartCount")
+  .textContent =
+  cart.length.toLocaleString("fa-IR");
+
+}
+
+
+function openCart() {
+
+  const modal =
+  document.getElementById("cartModal");
+
+  const items =
+  document.getElementById("cartItems");
+
+  if (cart.length === 0) {
+
+    items.innerHTML = `
+      <div class="empty">
+        سبد خریدت خالیه 🥹
+      </div>
+    `;
+
+  } else {
+
+    items.innerHTML =
+    cart.map((product,index) => `
+
+      <div class="cart-item">
+
+        <span>
+          ${product.emoji}
+          ${product.name}
+        </span>
+
+        <span>
+
+          ${formatPrice(product.price)}
+
+          <button
+            class="remove"
+            onclick="removeItem(${index})">
+
+            🗑️
+
+          </button>
+
+        </span>
+
+      </div>
+
+    `).join("");
+
+  }
+
+
+  const total =
+  cart.reduce(
+    (sum, product) =>
+    sum + product.price,
+    0
+  );
+
+
+  document.getElementById("totalPrice")
+  .textContent =
+  formatPrice(total);
+
+
+  modal.classList.add("active");
+
+}
+
+
+function closeCart() {
+
+  document
+  .getElementById("cartModal")
+  .classList.remove("active");
+
+}
+
+
+function removeItem(index) {
+
+  cart.splice(index,1);
+
+  saveCart();
+
+  openCart();
+
+}
+
+
+function checkout() {
+
+  if (cart.length === 0) {
+
+    alert(
+      "سبد خریدت خالیه 🥹"
+    );
+
+    return;
+
+  }
+
+
+  alert(
+    "این نسخه فعلاً نمایشی است 💗\n\nبرای پرداخت آنلاین و ثبت سفارش واقعی، باید درگاه پرداخت و سیستم سفارش به سایت متصل شود."
+  );
+
+}
+
+
+document
+.getElementById("cartModal")
+.addEventListener(
+  "click",
+  function(event) {
+
+    if (
+      event.target === this
+    ) {
+
+      closeCart();
+
+    }
+
+  }
+);
+
+
+showProducts();
+
+saveCart();
+
+</script>
+
+</body>
+</html>
